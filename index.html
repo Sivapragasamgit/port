@@ -51,6 +51,31 @@
             padding: 20px 0;
         }
 
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .photo-anchor {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.2rem;
+            transition: transform 0.3s;
+        }
+
+        .photo-anchor:hover {
+            transform: scale(1.1);
+        }
+
         .logo {
             font-size: 1.8rem;
             font-weight: 700;
@@ -96,6 +121,24 @@
             border-radius: 0 0 50px 50px;
         }
 
+        .hero-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 50px;
+            text-align: left;
+        }
+
+        .hero-text {
+            flex: 1;
+        }
+
+        .hero-image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+        }
+
         .hero-content h1 {
             font-size: 3.5rem;
             margin-bottom: 20px;
@@ -103,8 +146,14 @@
 
         .hero-content p {
             font-size: 1.2rem;
-            max-width: 700px;
-            margin: 0 auto 30px;
+            margin-bottom: 30px;
+            line-height: 1.8;
+        }
+
+        .education-info {
+            margin-top: 20px;
+            font-size: 1.1rem;
+            opacity: 0.9;
         }
 
         .btn {
@@ -117,7 +166,7 @@
             text-decoration: none;
             font-weight: 600;
             transition: transform 0.3s, box-shadow 0.3s;
-            margin: 10px;
+            margin: 10px 10px 10px 0;
         }
 
         .btn:hover {
@@ -128,6 +177,15 @@
         .btn-outline {
             background-color: transparent;
             border: 2px solid white;
+        }
+
+        .profile-image {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid white;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
         }
 
         /* About Section */
@@ -173,6 +231,13 @@
             margin-bottom: 20px;
         }
 
+        .college-info {
+            background-color: rgba(108, 99, 255, 0.1);
+            padding: 15px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+
         .skills {
             display: flex;
             flex-wrap: wrap;
@@ -191,15 +256,6 @@
         .about-image {
             flex: 1;
             text-align: center;
-        }
-
-        .profile-img {
-            width: 300px;
-            height: 300px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 5px solid var(--primary);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
         }
 
         /* Projects Section */
@@ -358,10 +414,31 @@
         @media (max-width: 768px) {
             .nav-links {
                 display: none;
+                position: absolute;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background-color: white;
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links li {
+                margin: 10px 0;
             }
 
             .menu-btn {
                 display: block;
+            }
+
+            .hero-content {
+                flex-direction: column-reverse;
+                text-align: center;
             }
 
             .hero-content h1 {
@@ -387,7 +464,10 @@
     <header>
         <div class="container">
             <nav>
-                <div class="logo">Jai <span>Akash</span></div>
+                <div class="logo-container">
+                    <a href="#home" class="photo-anchor">JA</a>
+                    <div class="logo">Jai <span>Akash</span></div>
+                </div>
                 <ul class="nav-links">
                     <li><a href="#home">Home</a></li>
                     <li><a href="#about">About</a></li>
@@ -405,11 +485,19 @@
     <section class="hero" id="home">
         <div class="container">
             <div class="hero-content">
-                <h1>Jai Akash</h1>
-                <p>Final Year Computer Science Engineering Student & Full Stack Developer passionate about creating innovative web solutions</p>
-                <div class="hero-buttons">
-                    <a href="#projects" class="btn">View My Projects</a>
-                    <a href="#contact" class="btn btn-outline">Get In Touch</a>
+                <div class="hero-text">
+                    <h1>Jai Akash</h1>
+                    <p>Final Year Computer Science Engineering Student & Full Stack Developer passionate about creating innovative web solutions</p>
+                    <div class="education-info">
+                        <p>Sri Ramakrishna College of Engineering, Perambalur, Tamil Nadu, India</p>
+                    </div>
+                    <div class="hero-buttons">
+                        <a href="#projects" class="btn">View My Projects</a>
+                        <a href="#contact" class="btn btn-outline">Get In Touch</a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <img src="download.jpg" alt="Jai Akash" class="profile-image">
                 </div>
             </div>
         </div>
@@ -425,6 +513,13 @@
                 <div class="about-text">
                     <h3>Hello! I'm Jai Akash</h3>
                     <p>I'm a passionate final year Computer Science Engineering student with a strong interest in full-stack web development. I enjoy turning complex problems into simple, beautiful, and intuitive solutions.</p>
+                    
+                    <div class="college-info">
+                        <h4>Education</h4>
+                        <p><strong>Sri Ramakrishna College of Engineering, Perambalur</strong></p>
+                        <p>Bachelor of Engineering in Computer Science (2020-2024)</p>
+                    </div>
+                    
                     <p>When I'm not coding, you can find me exploring new technologies, contributing to open-source projects, or expanding my knowledge in software architecture and design patterns.</p>
                     
                     <h4>Skills & Technologies</h4>
@@ -437,7 +532,7 @@
                         <span class="skill-tag">HTML5</span>
                         <span class="skill-tag">CSS3</span>
                         <span class="skill-tag">MySQL</span>
-                        <span class="skill-tag">PostgreSql</span>
+                        <span class="skill-tag">PostgreSQL</span>
                         <span class="skill-tag">Git</span>
                         <span class="skill-tag">REST APIs</span>
                     </div>
@@ -552,6 +647,15 @@
                             <p>Perambalur, Tamil Nadu, India</p>
                         </div>
                     </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <div>
+                            <h3>College</h3>
+                            <p>Sri Ramakrishna College of Engineering, Perambalur</p>
+                        </div>
+                    </div>
                 </div>
                 <div class="contact-form">
                     <form id="contactForm">
@@ -579,6 +683,7 @@
         <div class="container">
             <div class="logo">Jai <span>Akash</span></div>
             <p>Full Stack Developer & Computer Science Engineering Student</p>
+            <p>Sri Ramakrishna College of Engineering, Perambalur</p>
             <div class="social-links">
                 <a href="https://www.linkedin.com/in/jai-akash-r-54a556262/?originalSubdomain=in" class="social-link"><i class="fab fa-linkedin-in"></i></a>
                 <a href="https://github.com/Jkdevlopments/" class="social-link"><i class="fab fa-github"></i></a>
@@ -611,6 +716,9 @@
                 
                 const targetId = this.getAttribute('href');
                 if(targetId === '#') return;
+                
+                // Close mobile menu if open
+                document.querySelector('.nav-links').classList.remove('active');
                 
                 const targetElement = document.querySelector(targetId);
                 if(targetElement) {
